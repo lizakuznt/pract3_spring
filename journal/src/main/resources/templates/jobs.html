@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Список специальностей</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Список специальностей</h1>
+<form action="#" th:action="@{/jobs}" method="post" th:object="${job}">
+    <input type="text" th:field="*{name}" placeholder="Название" required />
+    <div th:if="${#fields.hasErrors('name')}" style="color:red;">
+        <span th:errors="*{name}"></span>
+    </div>
+    <button type="submit">Добавить специальность</button>
+</form>
+
+<h2>Существующие специальности:</h2>
+<ul>
+    <li th:each="job : ${jobs}">
+        <span th:text="${job.name}">Название специальности</span> -
+        <a th:href="@{/jobs/edit/{id}(id=${job.id})}">Редактировать</a>
+        <a th:href="@{/jobs/delete/{id}(id=${job.id})}" onclick="return confirm('Вы уверены, что хотите удалить?');">Удалить</a>
+    </li>
+</ul>
+</body>
+</html>

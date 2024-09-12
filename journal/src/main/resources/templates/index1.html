@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Вывод всех специалностей</h2>
+<form action="/job/create" method="get">
+    <button >Добавление специальности</button>
+</form>
+<ul>
+    <th:block th:each="job : ${jobs}">
+        <li th:text="${job.getId()} +' '+  ${job.getName()}">
+        </li>
+    </th:block>
+</ul>
+</body>
+</html>

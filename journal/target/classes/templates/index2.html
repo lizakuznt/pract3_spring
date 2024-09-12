@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Вывод всех дисципин</h2>
+<form action="/sub/create" method="get">
+    <button >Добавление дисциплин</button>
+</form>
+<ul>
+    <th:block th:each="sub : ${subs}">
+        <li th:text="${sub.getId()} +' '+  ${sub.getName()}">
+        </li>
+    </th:block>
+</ul>
+</body>
+</html>
